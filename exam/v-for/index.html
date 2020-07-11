@@ -2,13 +2,15 @@
 <html>
 <head>
 	<meta charset='utf-8'>
-	<title>vue-007</title>
+	<title>vue-for</title>
 </head>
 <body>
 	<div id='app'>
-		<p>{{message}}</p>
-		<p v-text='message'></p>
-		<p v-html='message'></p>
+		<ul>
+			<li v-for="item in list">
+				{{item.xh}}. {{item.text}}
+			</li>
+		</ul>
 	</div>
 <!-- 开发环境版本，包含了有帮助的命令行警告 -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
