@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>vue-简单计算器</title>
+</head>
+<body>
+	<div id='app'>
+		<input type="number" v-model="num1" />
+        <select v-model="opt" @change="cals" >
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="number" v-model="num2" />
+        <button type="button" @click="cals" >=</button>
+		<input type="number" v-model="result" />
+	</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!-- 
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+-->
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+		    num1: '',
+			num2: '',
+			opt: '/',
+			result: '',
+		},
+		methods: {
+			cals: function () {
+				try {
+					this.result = eval(this.num1 + this.opt + this.num2);
+				} catch (e) {
+					this.result = '';
+
+				}
+			}
+		}
+	});
+
+</script>
+</body>
+</html>
