@@ -41,5 +41,15 @@ let app = new Vue({
                 seconde = d.getSeconds().toString().padStart(2, '0');
             return [year, month, date].join('-') + ' ' + [hour, minute, seconde].join(':');
         }
+    },
+    directives: {
+        'focus': {
+            inserted(el) {
+                el.focus();
+            }
+        },
+        color(el, arg) {
+            el.style.color = arg.value;
+        }
     }
 });

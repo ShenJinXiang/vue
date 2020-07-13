@@ -13,26 +13,26 @@
 		<form class="form-horizontal">
 			<div class="form-group">
 				<label for="id" class="col-sm-2 control-label">ID: </label>
-				<div class="col-sm-10">
+				<div class="col-sm-9">
 					<input class="form-control" type="text" id="id" v-model="id" >
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="name" class="col-sm-2 control-label">name: </label>
-				<div class="col-sm-10">
+				<div class="col-sm-9">
 					<input class="form-control" type="text" v-model="name" id="name" @keypress.enter="addUser" >
 				</div>
 			</div>
 			<div class="form-group">
                 <span class="col-sm-2"></span>
-				<div class="col-sm-10">
+				<div class="col-sm-9">
 					<button class="btn btn-default" type="button" @click="addUser" >添加</button>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="search" class="col-sm-2 control-label">搜索: </label>
-				<div class="col-sm-10">
-					<input id="search" class="form-control" type="text" v-model="keywords" >
+				<div class="col-sm-9">
+					<input id="search" class="form-control" type="text" v-model="keywords" v-focus v-color="'#048'">
 				</div>
 			</div>
 		</form>
