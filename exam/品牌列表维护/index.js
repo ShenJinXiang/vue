@@ -5,13 +5,13 @@ let app = new Vue({
         id: '',
         name: '',
         keywords: '',
-        users: [
+        list: [
             {id: 1, name: '张良', createtime: new Date()},
         ]
     },
     methods: {
-        addUser() {
-            this.users.push({
+        add() {
+            this.list.push({
                 id: this.id,
                 name: this.name,
                 createtime: new Date()
@@ -19,16 +19,16 @@ let app = new Vue({
 
             this.id = this.name = '';
         },
-        deleteUser(id) {
-            this.users.some((item, index) => {
+        deleteItem(id) {
+            this.list.some((item, index) => {
                 if (item.id === id) {
-                    this.users.splice(index, 1);
+                    this.list.splice(index, 1);
                     return true;
                 }
             } );
         },
         search(keywords) {
-            return this.users.filter(item => item.name.includes(keywords));
+            return this.list.filter(item => item.name.includes(keywords));
         },
     },
     filters: {
