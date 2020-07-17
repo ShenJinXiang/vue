@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+	<title>vue</title>
+</head>
+<body>
+	<div id='app'>
+		<table class="table table-striped table-bordered table-hover ">
+			<tr>
+				<th v-center>ID</th>
+				<th v-center>姓名</th>
+				<th v-center>年龄</th>
+				<th v-center>性别</th>
+				<th>说明</th>
+			</tr>
+			<tr v-for="item in list" :key="item.id" >
+				<td v-center>{{item.id}}</td>
+				<td>{{item.name}}</td>
+				<td v-center>{{item.age}}</td>
+				<td v-center>{{item.sex | formatSex}}</td>
+				<td>{{item.desc}}</td>
+			</tr>
+		</table>
+	</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			list: []
+		},
+		methods: {
+			getData() {
+				this.$http.get("http://localhost:8080/students").then((resp) => {
+					if (resp.status === 200) {
+						this.list = resp.body;
+					}
+				}, (err) => {
+					console.log(err);
+				})
+			}
+		},
+		created() {
+			this.getData();
+		},
+		filters: {
+			formatSex(sex) {
+				if (sex === 1) {
+					return "男";
+				}
+				if (sex === 0) {
+					return "女";
+				}
+				return '暂无';
+			}
+		},
+		directives: {
+			center(el) {
+				el.style.textAlign = 'center';
+			}
+		}
+	});
+
+</script>
+</body>
+</html>
