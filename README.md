@@ -31,7 +31,8 @@
 </html>
 ```
 
-## 声明式渲染
+## 基础
+### 声明式渲染
 ```html
 <div id='app'>
     {{ message }}
@@ -48,7 +49,7 @@ let app = new Vue({
 });
 ```
 
-## v-bind
+### v-bind
 ```html
 <div id='app'>
     <span v-bind:title="message">
@@ -67,3 +68,93 @@ let app = new Vue({
 	},
 });
 ```
+
+## 组件
+### 创建组件
+
+#### 方式1
+
+```html
+<div id='app'>
+    <my-component></my-component>
+</div>
+```
+
+```javascript
+let temp = Vue.extend({
+    template: '<div><h2>组件标题</h2><span>使用Vue.extends的方式</span></div>'
+});
+Vue.component('myComponent', temp);
+let app = new Vue({
+    el: '#app',
+    data: {
+    },
+    methods: {
+    }
+});
+```
+
+#### 方式2
+
+```html
+<div id='app'>
+    <my-component></my-component>
+</div>
+```
+
+```javascript
+Vue.component('myComponent', {
+    template: '<div><h2>组件标题</h2><span>使用Vue.component的方式</span></div>'
+});
+var app = new Vue({
+    el: '#app',
+    data: {
+    },
+    methods: {
+    }
+});
+```
+
+#### 方式3
+
+```html
+<div id='app'>
+    <my-component1></my-component1>
+    <my-component2></my-component2>
+</div>
+
+<template id="temp1">
+    <div>
+        <h2>组件标题</h2>
+        <span>使用template标签的方式</span>
+    </div>
+</template>
+
+<template id="temp2">
+    <div>
+        <h3>三甲</h3>
+        <ul>
+            <li>朱元璋</li>
+            <li>朱允炆</li>
+            <li>朱棣</li>
+        </ul>
+    </div>
+</template>
+```
+
+```javascript
+Vue.component('myComponent1', {
+    template: '#temp1'
+});
+Vue.component('myComponent2', {
+    template: '#temp2'
+});
+let app = new Vue({
+    el: '#app',
+    data: {
+    },
+    methods: {
+    }
+});
+```
+
