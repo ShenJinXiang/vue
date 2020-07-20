@@ -6,13 +6,25 @@
 </head>
 <body>
 	<div id='app'>
-		<my-component></my-component>
+		<my-component1></my-component1>
+		<my-component2></my-component2>
 	</div>
 
 	<template id="temp1">
 		<div>
 			<h2>组件标题</h2>
 			<span>使用template标签的方式</span>
+		</div>
+	</template>
+
+	<template id="temp2">
+		<div>
+			<h3>三甲</h3>
+			<ul>
+				<li>朱元璋</li>
+				<li>朱允炆</li>
+				<li>朱棣</li>
+			</ul>
 		</div>
 	</template>
 <!-- 开发环境版本，包含了有帮助的命令行警告 -->
@@ -22,8 +34,11 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 -->
 <script>
-	Vue.component('myComponent', {
-		el: '#temp1'
+	Vue.component('myComponent1', {
+		template: '#temp1'
+	});
+	Vue.component('myComponent2', {
+		template: '#temp2'
 	});
 	var app = new Vue({
 		el: '#app',
