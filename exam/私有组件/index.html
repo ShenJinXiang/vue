@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>vue-自定义组件</title>
+</head>
+<body>
+	<div id='app'>
+		<counter></counter>
+		<counter></counter>
+		<counter></counter>
+	</div>
+
+	<template id="counter_temp">
+		<div>
+			<button type="button" @click="increment">count<span v-if="count > 0">[{{ count }}]</span></button>
+		</div>
+	</template>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 生产环境版本，优化了尺寸和速度 -->
+<!-- 
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+-->
+<script>
+	let app = new Vue({
+		el: '#app',
+		data: {
+		},
+		methods: {
+		},
+		components: {
+			'counter': {
+				template: '#counter_temp',
+				data() {
+					return {
+						count: 0
+					}
+				},
+				methods: {
+					increment() {
+						this.count++;
+					}
+				}
+			}
+		}
+	});
+
+</script>
+</body>
+</html>
