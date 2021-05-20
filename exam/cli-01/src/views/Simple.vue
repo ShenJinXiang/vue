@@ -2,18 +2,21 @@
   <div class="simple-coms">
     <h4>counter</h4>
     <counter />
-    <counter />
+    <buttonCounter />
+    <buttonCounter />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import counter from '@/components/counter.vue';
+import buttonCounter from '@/components/buttonCounter.vue';
 
 export default {
   name: 'Home',
   components: {
     counter,
+    buttonCounter,
   },
 };
 </script>
