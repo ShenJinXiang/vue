@@ -34,3 +34,4 @@ target/
 # jetbrains
 *.iml
 .idea/
+node_modules/
