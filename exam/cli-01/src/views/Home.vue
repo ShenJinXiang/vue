@@ -2,6 +2,7 @@
   <div class="home">
 <!--    <img alt="Vue logo" src="../assets/logo.png">-->
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="simplePage">simple</button>
   </div>
 </template>
 
@@ -13,6 +14,11 @@ export default {
   name: 'Home',
   components: {
     HelloWorld,
+  },
+  methods: {
+    simplePage() {
+      this.$router.push('/simple');
+    },
   },
 };
 </script>
