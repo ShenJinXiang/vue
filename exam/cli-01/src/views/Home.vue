@@ -4,6 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <button @click="simplePage">simple</button>
     <button @click="getInfo">info</button>
+    <button @click="showPdf">pdf</button>
   </div>
 </template>
 
@@ -34,6 +35,9 @@ export default {
       }).then((response) => {
         console.log(response.data);
       });
+    },
+    showPdf() {
+      this.$router.push('/pdf');
     },
   },
 };

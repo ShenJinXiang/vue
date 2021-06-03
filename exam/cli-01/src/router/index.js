@@ -33,6 +33,11 @@ const routes = [
     },
     component: () => import('../views/Simple'),
   },
+  {
+    path: '/pdf',
+    name: 'pdf',
+    component: () => import('../views/pdf'),
+  },
 ];
 
 const router = new VueRouter({
