@@ -5,6 +5,7 @@
     <button @click="simplePage">simple</button>
     <button @click="getInfo">info</button>
     <button @click="showPdf">pdf</button>
+    <button @click="showTodoList">TodoList</button>
   </div>
 </template>
 
@@ -38,6 +39,9 @@ export default {
     },
     showPdf() {
       this.$router.push('/pdf');
+    },
+    showTodoList() {
+      this.$router.push('/todolist');
     },
   },
 };

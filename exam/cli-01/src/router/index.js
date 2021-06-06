@@ -38,6 +38,11 @@ const routes = [
     name: 'pdf',
     component: () => import('../views/pdf'),
   },
+  {
+    name: 'todolist',
+    path: '/todolist',
+    component: () => import('../views/TodoList'),
+  },
 ];
 
 const router = new VueRouter({
