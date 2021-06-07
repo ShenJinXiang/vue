@@ -1,32 +1,34 @@
 <template>
-  <li>
-    <p class="todolist-item-info" v-show="isActive">{{ content }}</p>
+  <div class="todolist-item-con">
+    <p class="todolist-item-info" v-show="!isActive">{{ item }}</p>
     <input v-show="isActive" type="text" v-model="content" />
     <span v-show="isActive" @click="update()">确定</span>
     <span v-show="!isActive" @click="openUpd()">修改</span>
     <span @click="del()">删除</span>
-  </li>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'TodoListItem',
-  prop: ['word', 'index'],
+  props: ['item', 'index'],
   data() {
     return {
-      content: this.word,
+      content: this.item,
       isActive: false,
     };
   },
   methods: {
     update() {
+      this.$emit('updateListItem', this.content, this.index);
       this.isActive = false;
     },
     openUpd() {
+      this.content = this.item;
       this.isActive = true;
     },
     del() {
-
+      this.$emit('deleteListItem', this.index);
     },
   },
 };

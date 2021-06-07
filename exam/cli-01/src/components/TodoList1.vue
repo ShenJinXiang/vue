@@ -4,8 +4,8 @@
     <button @click="addWord" class="=todolist-btn">添加</button>
     <ul class="todolist-ul">
       <li v-for="(item, index) in list" :key="index">
-        <todo-list-item :word="item" :index="index"
-                       @deleteItem="deleteItem" @updateItem="updateItem" />
+        <todo-list-item :item=" item " :index="index"
+                       @deleteListItem="deleteItem" @updateListItem="updateItem" />
       </li>
     </ul>
   </div>
@@ -28,14 +28,13 @@ export default {
       if (this.currentVal) {
         this.list.push(this.currentVal);
         this.currentVal = '';
-        console.log(this.list);
       }
     },
-    deleteItem() {
-      console.log('delete');
+    deleteItem(index) {
+      this.list.splice(index, 1);
     },
-    updateItem() {
-      console.log('update');
+    updateItem(content, index) {
+      this.list.splice(index, 1, content);
     },
   },
 };
