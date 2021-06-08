@@ -6,6 +6,7 @@
     <button @click="getInfo">info</button>
     <button @click="showPdf">pdf</button>
     <button @click="showTodoList">TodoList</button>
+    <button @click="showElement">Element-UI</button>
   </div>
 </template>
 
@@ -42,6 +43,9 @@ export default {
     },
     showTodoList() {
       this.$router.push('/todolist');
+    },
+    showElement() {
+      this.$router.push('/element');
     },
   },
 };

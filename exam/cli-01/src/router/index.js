@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import config from '@/config';
 import Home from '../views/Home.vue';
+import { element } from './element';
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,7 @@ const routes = [
     path: '/todolist',
     component: () => import('../views/TodoList'),
   },
+  ...element,
 ];
 
 const router = new VueRouter({
